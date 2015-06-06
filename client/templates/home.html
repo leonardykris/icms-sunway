@@ -1,0 +1,149 @@
+<!-- Home Template -->
+<template name="home">
+	{{ > navbar }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+    			{{ > tutorialSection }}
+    		</div>
+			<div class="col-md-4">
+    			{{ > programmeSection }}
+    		</div>
+    		<div class="col-md-4">
+    			{{ > subjectSection }}
+    		</div>
+    	</div>
+	</div>
+</template>
+
+<!-- Programme Button Template -->
+<template name="tutorialSection">
+	<div class="centered">
+	    <img class="img" src="/img/Student_Reading_512.png" alt="Generic placeholder image" width="180" height="180">
+	    <p>
+	    	<div class="btn-group" role="group">
+			    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			     	Tutorial
+			      	<span class="caret"></span>
+			    </button>
+			    <ul class="dropdown-menu" role="menu">
+			      	<li><a href="#">First time here?</a></li>
+			      	<li><a href="#">Managing your programmes</a></li>			      	
+			      	<li><a href="#">Managing your subjects</a></li>
+			    </ul>
+		  	</div>
+	    </p>
+	</div>
+</template>
+
+<!-- Programme Button Template -->
+<template name="programmeSection">
+	<div class="centered">
+	    <img class="" src="/img/College_Notebook_512.png" alt="Generic placeholder image" width="180" height="180">
+	    <p>
+	    	<div class="btn-group" role="group">
+			    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			     	Programmes
+			      	<span class="caret"></span>
+			    </button>
+			    <ul class="dropdown-menu" role="menu">
+			      	<li><a href="#">View Programmes</a></li>
+			      	<li><a href="/programme">Add Program</a></li>
+			    </ul>
+		  	</div>
+	    </p>
+	</div>
+</template>
+
+<!-- Subject Button Template -->
+<template name="subjectSection">
+	<div class="centered">
+	    <img class="" src="/img/Exam_with_Three_Questions_512.png" alt="Generic placeholder image" width="180" height="180">
+	    <p>
+	    	<div class="btn-group" role="group">
+			    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			     	Subjects
+			      	<span class="caret"></span>
+			    </button>
+			    <ul class="dropdown-menu" role="menu">
+			      	<li><a href="#">View Subjects</a></li>
+			      	<li><a href="#">Add Subject</a></li>
+			    </ul>
+		  	</div>
+	    </p>
+	</div>
+</template>
+
+<!-- Navbar Template -->
+<template name="navbar">
+	<nav class="navbar navbar-default">
+		<div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+		      	<a class="navbar-brand" href="#">Interactive Curriculum Management System</a>
+			</div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav">
+			        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+			        <li><a href="#">About</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
+			          	<ul class="dropdown-menu" role="menu">
+				            <li><a href="#">Log Out</a></li>
+				            <li class="divider"></li>
+				            <li><a href="#">Help</a></li>
+			          	</ul>
+			        </li>
+			    </ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+</template>
+
+<!-- Leaderboard List Template -->
+<template name="list">
+    <div class="panel panel-default" style="margin:25px;">
+        <div class="panel-heading">Leaderboard</div>
+        <p>{{> addForm}}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Name</th>
+					<th></th>
+                </tr>
+            </thead>
+            <tbody id="list">
+
+            </tbody>
+        </table>
+        <div id="pager"></div>
+    </div>
+</template>
+
+<!-- Leaderboard Form Template -->
+<template name="addForm">
+	<div style="margin: 20px;">
+    <form class="">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" name="name" placeholder="Type name" />
+        </div>
+        <div class="form-group">
+            <label for="score">Score</label>
+            <input class="form-control" type="text" name="score" placeholder="0" />
+        </div>
+        <button type="submit" class="btn btn-default">Add</button>
+    </form>
+	</div>
+</template>

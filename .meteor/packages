@@ -1,0 +1,6 @@
+autopublish
+insecure
+meteor-platform
+twbs:bootstrap
+telerik:kendo-ui-core-bootstrap-theme
+iron:router
