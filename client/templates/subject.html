@@ -1,0 +1,236 @@
+<!-- Subject Template -->
+<template name="subject">
+	{{ > navbar }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+                {{ > addSubject }}
+            </div>
+            <div class="col-md-4">
+                {{ > recentSubject }}
+            </div>
+    	</div>
+	</div>
+</template>
+
+<template name="recentSubject">
+    <legend>Recently Added Subjects</legend>
+    <div class="list-group">
+      <a href="#" class="list-group-item">Problem Solving and Programming Fundamentals</a>
+      <a href="#" class="list-group-item">Programming Principles</a>
+      <a href="#" class="list-group-item">Computer Fundamentals</a>
+    </div>
+</template>
+
+<template name="addSubject">
+    <form class="form-horizontal">
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>Add New Subject</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="staff">Staff</label>  
+          <div class="col-md-5">
+          <input id="staff" name="staff" type="text" placeholder="Name of Academic Staff" class="form-control input-md" required="" disabled="">
+          </div>
+        </div>
+
+        <!-- Subject ID -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="id">Subject ID</label>  
+          <div class="col-md-5">
+          <input id="id" name="id" type="text" placeholder="Subject ID" class="form-control input-md" required="">
+          </div>
+        </div>
+
+        <!-- Subject Name -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="name">Subject Name</label>  
+          <div class="col-md-5">
+          <input id="name" name="name" type="text" placeholder="Subject Name" class="form-control input-md" required="">
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="rationale">Rationale</label>  
+          <div class="col-md-8">
+          <textarea id="rationale" name="rationale" type="text-area" placeholder="Rationale for the inclusion of the subject in the programme" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="year">Year Offered</label>
+          <div class="col-md-2">
+            <select id="year" name="year" class="form-control">
+              <option value="1">Year 1</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="term">Term Offered</label>
+          <div class="col-md-2">
+            <select id="term" name="term" class="form-control">
+              <option value="1">Term 1</option>
+              <option value="2">Term 2</option>
+              <option value="3">Term 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="credit">Credit Value</label>
+          <div class="col-md-2">
+            <select id="credit" name="credit" class="form-control">
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Select Multiple -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="prerequisite">Prerequisite(s)</label>
+          <div class="col-md-8">
+            <select id="prerequisite" name="prerequisite" class="form-control" multiple="multiple" data-toggle="context" data-target="#context-menu">
+              <option value="none">(None)</option>
+              <option value="PRG1101">Problem Solving and Programming Fundamentals</option>
+              <option value="PRG1102">Programming Principles</option>
+              <option value="CSC1101">Computer Fundamentals</option>
+            </select>
+            <span class="help-block">Hold control (CTRL) to select multiple subjects/ cancel selection.<br/>Right click to view subject.</span> 
+          </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="context-menu">
+          <ul class="dropdown-menu" role="menu">
+            <li><a tabindex="-1" href="http://www.google.com/search?q=prg1101">View Subject</a></li>
+            <li><a tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="transferable">Transferable Skills</label>  
+          <div class="col-md-8">
+          <textarea id="transferable" name="transferable" type="text" placeholder="Transferable Skills" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+            
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="synopsis">Synopsis</label>  
+          <div class="col-md-8">
+          <textarea id="synopsis" name="synopsis" type="text" placeholder="Synopsis" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+            
+          </div>
+        </div>
+
+        <!-- Multiple Checkboxes -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="modes">Mode of Delivery</label>
+          <div class="col-md-4">
+          <div class="checkbox">
+            <label for="modes-0">
+              <input type="checkbox" name="modes" id="modes-0" value="L">
+              Lecture
+            </label>
+            </div>
+          <div class="checkbox">
+            <label for="modes-1">
+              <input type="checkbox" name="modes" id="modes-1" value="T">
+              Tutorial
+            </label>
+            </div>
+          <div class="checkbox">
+            <label for="modes-2">
+              <input type="checkbox" name="modes" id="modes-2" value="P">
+              Practical
+            </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="reference">References</label>  
+          <div class="col-md-8">
+          <textarea id="reference" name="reference" type="text" placeholder="References" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="information">Additional Information</label>  
+          <div class="col-md-8">
+          <textarea id="information" name="information" type="text" placeholder="Additional Information" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          </div>
+        </div>
+
+        <legend>Subject Learning Outcomes</legend>
+        <input type="hidden" name="count" value="1" />
+
+        <!-- Subject Learning Outcome -->
+        <div class="form-group">
+            <div class="">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-md-1">SLO</th>
+                      <th class="col-md-7">Content</th>
+                      <th class="col-md-3">PLOs</th>
+                      <th class="col-md-1"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="field">
+                      <th scope="row" class="num"><input id="ploID" name="ploID" type="text" placeholder="ID" class="form-control input-md"></th>
+                      <td><textarea id="synopsis" name="synopsis" type="text" placeholder="Synopsis" class="form-control input-md" required="" style="resize:none" rows="3"></textarea></td>
+                      <td><input id="plo" name="plo" type="text" placeholder="PLOs" class="form-control input-md"></td>
+                      <td><button id="" class="btn btn-success btn-add" type="button">+</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            $(document).on('click', '.btn-add', function(e)
+            {
+                e.preventDefault();
+
+                var controlTable = $('.table-body'),
+                    currentEntry = $(this).parents('.field:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlTable);
+
+                newEntry.find('input').val('');
+
+                controlTable.find('.field:not(:last) .btn-add')
+                    .removeClass('btn-add').addClass('btn-remove')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('-');
+
+            }).on('click', '.btn-remove', function(e)
+            {
+                $(this).parents('.field:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+        </script>        
+
+        </fieldset>
+    </form>
+
+</template>
