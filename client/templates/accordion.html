@@ -1,0 +1,158 @@
+<!-- Accordion Template -->
+<template name="accordion">
+	<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">
+        <legend class="navmenu-brand" href="#">Programme Learning Outcomes</legend>
+
+        <div class="accordion" id="accordion2">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                PO1
+              </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                Demonstrate knowledge and understanding of essential facts, concepts, principles, and theories relating to Computer Science
+                <br/><b>related:</b> <i>Knowledge</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                PO2
+              </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Apply theoretical principles of Computer Science in relevant areas
+                <br/><b>related:</b> <i>Practical Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                PO3
+              </a>
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Demonstrate theoretical computing knowledge in analysing, modeling, designing, developing, and evaluating computing solutions; and integrate various technology/ solutions
+                <br/><b>related:</b> <i>Practical Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                PO4
+              </a>
+            </div>
+            <div id="collapseFour" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Communicate effectively with peers, clients, superiors and society at large
+                <br/><b>related:</b> <i>Social Skills and Responsibilities; Communication, Leadership and Team Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                PO5
+              </a>
+            </div>
+            <div id="collapseFive" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Demonstrate teamwork, leadership, interpersonal and social skills
+                <br/><b>related:</b> <i>Social Skills and Responsibilities; Communication, Leadership and Team Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                PO6
+              </a>
+            </div>
+            <div id="collapseSix" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Apply skills and principles of lifelong learning in academic and career development
+                <br/><b>related:</b> <i>Information Management and Lifelong Learning Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                PO7
+              </a>
+            </div>
+            <div id="collapseSeven" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Utilize relevant techniques and demonstrate analytical and critical thinking skills in problem solving
+                <br/><b>related:</b> <i>Problem Solving and Scientific Skills</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+                PO8
+              </a>
+            </div>
+            <div id="collapseEight" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Demonstrate professionalism and social and ethical considerations in accordance with ethical and legal principles
+                <br/><b>related:</b> <i>Values, attitudes and professionalism</i>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+                PO9
+              </a>
+            </div>
+            <div id="collapseNine" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Apply broad business and real world perspectives daily and demonstrate entrepreneurial skills
+                <br/><b>related:</b> <i>Managerial and Entrepreneurial Skills</i>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+  	</nav>
+  	<script>
+        $('.navmenu').offcanvas({
+        });
+
+        $(function() {
+          $("ol.simple_with_drop").sortable({
+            group: 'no-drop',
+            onDragStart: function (item, container, _super) {
+              // Duplicate items of the no drop area
+              if(!container.options.drop)
+                item.clone().insertAfter(item)
+              _super(item)
+            }
+          });
+          console.log('test1');
+          $("ol.simple_with_no_drop").sortable({
+            group: 'no-drop',
+            drop: false
+          })
+        })
+        console.log('hey');
+  	</script>
+</template>

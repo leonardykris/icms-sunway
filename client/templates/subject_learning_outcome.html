@@ -1,0 +1,78 @@
+<!-- Subject Learning Outcome Template -->
+
+<template name="subject_learning_outcome">
+	<legend>Subject Learning Outcomes</legend>
+
+        <!-- Subject Learning Outcome -->
+        <div class="form-group col-md-10">
+            <div class="">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="col-md-1">SLO</th>
+                      <th class="col-md-6">Content</th>
+                      <th class="col-md-2">POs</th>
+                      <th class="col-md-1"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="field" id="slo-field-1">
+                      <th scope="row" class="num"><input id="sloID" name="sloID" type="text" placeholder="ID" class="form-control" value="1"></th>
+                      <td><textarea id="slo" name="slo" type="text" placeholder="Content" class="form-control" required="" style="resize:none" rows="3"></textarea></td>
+                      <td>
+                        <!-- <input id="plo" name="plo" type="text" placeholder="PLOs" class="form-control" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body"> -->
+                        <!-- <ol class="simple_with_drop" data-toggle="context" data-target="#context-menu"> -->
+                         <ol class="simple_with_drop" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+                        </ol>
+                      </td>
+                      <td><button id="" class="btn btn-success btn-add" type="button">+</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span class="help-block">Click at the POs to see more details.<br/>Drag the available POs from the right side to the table to add.</span>
+            </div>
+        </div>
+
+        <div class="list-group col-md-2">
+          <ol class="simple_with_no_drop" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+            <li class="list-group-item">PO1</li>
+            <li class="list-group-item"><a href="#">PO2</a></li>
+            <li class="list-group-item"><a href="#">PO3</a></li>
+            <li class="list-group-item"><a href="#">PO4</a></li>
+          </ol>
+        </div>
+        <!-- <span name="toggle" type="btn btn-default" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" style="display: block;">Hey</span> -->
+
+        <script>
+            var count_slo = 1;
+            $(document).on('click', '.btn-add', function(e)
+            {
+                e.preventDefault();
+
+                var controlTable = $('.table-body'),
+                    currentEntry = $(this).parents('.field:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlTable);
+
+                count_slo = count_slo + 1;
+
+                newEntry.find('input').val('');
+                newEntry.find("input:first").val(count_slo);                
+                newEntry.attr("id", "slo-field-" + count_slo);
+
+
+                controlTable.find('.field:not(:last) .btn-add')
+                    .removeClass('btn-add').addClass('btn-remove')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('-');
+
+            }).on('click', '.btn-remove', function(e)
+            {
+                $(this).parents('.field:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+        </script>       
+
+
+</template>

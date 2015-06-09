@@ -1,16 +1,17 @@
 <!-- Subject Template -->
 <template name="subject">
-	{{ > navbar }}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8">
-                {{ > addSubject }}
-            </div>
-            <div class="col-md-4">
-                {{ > recentSubject }}
-            </div>
-    	</div>
-	</div>
+  	{{ > navbar }}
+  	<div class="container">
+      {{ > accordion }}      
+  		<div class="row">
+  			<div class="col-md-8">
+            {{ > addSubject }}
+        </div>
+        <div class="col-md-4">
+            {{ > recentSubject }}
+        </div>
+      	</div>
+  	</div>
 </template>
 
 <template name="recentSubject">
@@ -19,11 +20,11 @@
       <a href="#" class="list-group-item">Problem Solving and Programming Fundamentals</a>
       <a href="#" class="list-group-item">Programming Principles</a>
       <a href="#" class="list-group-item">Computer Fundamentals</a>
-    </div>
+    </div>    
 </template>
 
 <template name="addSubject">
-    <form class="form-horizontal">
+    <form name="addSubject" class="form-horizontal" onsubmit="" novalidate>
         <fieldset>
 
         <!-- Form Name -->
@@ -178,57 +179,15 @@
           </div>
         </div>
 
-        <legend>Subject Learning Outcomes</legend>
-        <input type="hidden" name="count" value="1" />
+        {{ > subject_learning_outcome }} 
 
-        <!-- Subject Learning Outcome -->
-        <div class="form-group">
-            <div class="">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th class="col-md-1">SLO</th>
-                      <th class="col-md-7">Content</th>
-                      <th class="col-md-3">PLOs</th>
-                      <th class="col-md-1"></th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-body">
-                    <tr class="field">
-                      <th scope="row" class="num"><input id="ploID" name="ploID" type="text" placeholder="ID" class="form-control input-md"></th>
-                      <td><textarea id="synopsis" name="synopsis" type="text" placeholder="Synopsis" class="form-control input-md" required="" style="resize:none" rows="3"></textarea></td>
-                      <td><input id="plo" name="plo" type="text" placeholder="PLOs" class="form-control input-md"></td>
-                      <td><button id="" class="btn btn-success btn-add" type="button">+</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div>
-        </div>
+        {{ > assessment }}  
 
-        <script>
-            $(document).on('click', '.btn-add', function(e)
-            {
-                e.preventDefault();
+        {{ > content_outline }}
 
-                var controlTable = $('.table-body'),
-                    currentEntry = $(this).parents('.field:first'),
-                    newEntry = $(currentEntry.clone()).appendTo(controlTable);
 
-                newEntry.find('input').val('');
+        <button type="submit" class="btn btn-success">Save</button>
 
-                controlTable.find('.field:not(:last) .btn-add')
-                    .removeClass('btn-add').addClass('btn-remove')
-                    .removeClass('btn-success').addClass('btn-danger')
-                    .html('-');
-
-            }).on('click', '.btn-remove', function(e)
-            {
-                $(this).parents('.field:first').remove();
-
-                e.preventDefault();
-                return false;
-            });
-        </script>        
 
         </fieldset>
     </form>

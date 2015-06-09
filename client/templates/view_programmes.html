@@ -1,0 +1,61 @@
+<!-- View Subjects Template -->
+<template name="view_programmes">
+	{{ > navbar }}
+  	<div class="container">
+		<div class="row">
+	  		<div class="col-md-8">
+	            {{ > programmeList }}
+	        </div>
+	        <div class="col-md-4">
+	        </div>
+      	</div>
+  	</div>
+</template>
+
+<template name="programmeList">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="col-md-1">ID</th>
+				<th class="col-md-11">Subject Name</th>
+			</tr>
+		</thead>
+		<tbody data-template="ul-template" class="list-group" data-bind="source: products">
+
+	    </tbody>
+	</table>
+
+	<!-- <tbody data-template="ul-template" class="list-group" data-bind="source: products">
+
+    </tbody> -->
+
+    <script id="ul-template" type="text/x-kendo-template">
+    	<tr>
+	        <th>
+	            <span data-bind="text: id"></span>
+	        </th>
+	        <td>
+	        	<span data-bind="text: name"></span>
+	        </td>
+        </tr>
+    </script>
+    <script>
+        var viewModel = kendo.observable({ 
+        	products: [ 
+        		{ 
+        			id: 1,
+        			name: "B. Sc (Hons) Information Technology (Networking and Security)" 
+        		}, 
+        		{ 
+        			id: 2, 
+        			name: "B. Sc (Hons) Computer Science"
+        		}, 
+        		{ 
+        			id: 3,
+        			name: "B. Sc (Hons) Information Systems" 
+        		} 
+        	] 
+        });
+        kendo.bind($("tbody"), viewModel);
+    </script>
+</template>

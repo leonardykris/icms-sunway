@@ -1,0 +1,172 @@
+<!-- Content Outline Template -->
+
+<template name="content_outline">
+	<legend>Content Outline and Learning Time Per Topic</legend>
+        <!-- <ul class="list-group">
+          <li class="list-group-item">L - Lecture</li>
+          <li class="list-group-item">T - Tutorial</li>
+          <li class="list-group-item">P - Practical</li>
+          <li class="list-group-item">S - Self Learning Hours</li>
+        </ul> -->
+
+        <!-- Subject Learning Outcome -->
+        <div class="form-group">
+          <table class="table table-bordered table-content">
+            <thead>
+              <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-5">Content</th>
+                <th class="col-md-1">Lecture</th>
+                <th class="col-md-1">Tutorial</th>
+                <th class="col-md-1">Practical</th>
+                <th class="col-md-2">Self Study</th>
+                <!-- <th class="col-md-1">Total</th> -->
+                <th class="col-md-1"><span data-bind="text: contentID"></span></th>
+              </tr>
+            </thead>
+            <tbody class="table-body-content">
+              <tr class="field" id="content-field-1">
+                <td scope="row" class="num">
+                  <input name="contentID" type="text" placeholder="ID" class="form-control" value="1">
+                </td>
+                <td>
+                  <input name="title" type="text" placeholder="Title" class="form-control">
+                  <textarea name="content" type="text" placeholder="Content" class="form-control content" required="" style="resize:none" rows="3"></textarea>
+                </td>
+                <td><input id="lecture-1"  type="number" class="form-control hours" data-bind="value: lecture[0]" placeholder="0"></td>
+                <td><input id="tutorial-1" type="number" class="form-control hours" data-bind="value: tutorial[0]" placeholder="0"></td>
+                <td><input id="practical-1" type="number" class="form-control hours" data-bind="value: practical[0]" placeholder="0"></td>
+                <td><input id="selfstudy-1" type="number" class="form-control hours" data-bind="value: selfstudy[0]" placeholder="0"></td>
+                <!-- <td><span id="total-1" class="totalHours" data-bind="text: total[0]"></span></td> -->
+                <td>
+                  <button id="" class="btn btn-success btn-add-content" type="button">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <span data-bind="text: contentID[0]"></span> -->
+        <!-- data-bind="text: contentID" -->
+
+        <script>
+            var count_content = 1;
+
+            $(document).on('click', '.btn-add-content', function(e)
+            {
+                e.preventDefault();
+
+                var controlTable = $('.table-body-content'),
+                    currentEntry = $(this).parents('.field:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlTable);
+
+                newEntry.find('input').val('');
+                count_content = count_content + 1;
+                newEntry.attr("id", "content-field-" + count_content);
+
+                controlTable.find('.field:not(:last) .btn-add-content')
+                    .removeClass('btn-add-content').addClass('btn-remove-content')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('-');
+
+                $("table.table-content tr").each(function( i ) {
+                  $("td:not(:last)", this).each(function( j ) {
+                    // console.log("".concat("row: ", i, ", col: ", j, ", value: ", $(this).text()));
+                    if (j == 0) {
+                      newEntry.find("input:first").val(count_content);
+                    }
+
+                    if (j == 2) {
+                      newEntry.find("#lecture-1").attr('data-bind', 'value: lecture[' + (count_content - 1) + ']"');
+                      newEntry.find("#lecture-1").attr('id', 'lecture-' + count_content);
+                    }
+                    if (j == 3) {
+                      newEntry.find("#tutorial-1").attr('data-bind', 'value: tutorial[' + (count_content - 1) + ']"');
+                      newEntry.find("#tutorial-1").attr('id', 'tutorial-' + count_content);
+                    }
+                    if (j == 4) {
+                      newEntry.find("#practical-1").attr('data-bind', 'value: practical[' + (count_content - 1) + ']"');
+                      newEntry.find("#practical-1").attr('id', 'practical-' + count_content);
+                    }
+                    if (j == 5) {
+                      newEntry.find("#selfstudy-1").attr('data-bind', 'value: selfstudy[' + (count_content - 1) + ']"');
+                      newEntry.find("#selfstudy-1").attr('id', 'selfstudy-' + count_content);
+                    }/*
+                    if (j == 6) {
+                      newEntry.find("#total-1").attr('data-bind', 'value: total[' + (count_content - 1) + ']"');
+                      newEntry.find("#total-1").attr('id', 'total-' + count_content);
+                    }*/
+
+                    if (j == 1) {
+                      console.log("".concat("row: ", i, ", col: ", j, ", value: ", $(this).find("input").val()), $(this).find("textarea").val());
+                    } else {
+                      console.log("".concat("row: ", i, ", col: ", j, ", value: ", $(this).find("input").val()));
+                    }
+                });
+
+                // console.log(viewModel[1].lecture);
+            });
+
+            }).on('click', '.btn-remove-content', function(e)
+            {
+                $(this).parents('.field:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+
+            var viewModel = kendo.observable({
+                /*contentID: [
+                  "1", 
+                  "2"
+                ],*/
+            });            
+            // console.log('viewModel initialized');
+
+
+
+            var hours = kendo.observable({
+              lecture: [],
+              tutorial: [],
+              practical: [],
+              selfstudy: [],
+              // total: []
+              // total: []
+/*                
+                  function() {
+                  return this.get("lecture[" + (count_content - 1) + "]") + this.get("tutorial[" + (count_content - 1) + "]") + this.get("practical[" + (count_content - 1) + "]") + this.get("selfstudy[" + (count_content - 1) + "]");
+                  }
+                */
+              
+            });
+            // console.log('totalHours initialized');
+
+            // $(".hours").keyup(function(event) {
+
+              /*var lecture = hours.get("lecture[" + (count_content - 1) + "]");
+              var tutorial = hours.get("tutorial[" + (count_content - 1) + "]");
+              var practical = hours.get("practical[" + (count_content - 1) + "]");
+              var selfstudy = hours.get("selfstudy[" + (count_content - 1) + "]");*/
+
+              /*var testing = function() {
+                  return hours.get("lecture[" + (count_content - 1) + "]") + hours.get("tutorial[" + (count_content - 1) + "]") + hours.get("practical[" + (count_content - 1) + "]") + hours.get("selfstudy[" + (count_content - 1) + "]");
+                  }
+
+              hours.set("total[" + (count_content - 1) + "]", testing);
+              console.log('succeed?');*/
+              // console.log($("#lecture-" + count_content).val());
+              // $("#total-" + count_content).text($("#lecture-" + count_content).val());
+              /*
+              hours.set("total[" + (count_content - 1) + "]", (lecture+tutorial+practical+selfstudy));
+              console.log('did it work?');*/
+            // });
+
+            /*(hours.get("lecture[" + (count_content - 1) + "]") + hours.get("tutorial[" + (count_content - 1) + "]") + hours.get("practical[" + (count_content - 1) + "]") + hours.get("selfstudy[" + (count_content - 1) + "]")*/
+
+            /*var totalHours = kendo.observable ({
+
+            });*/
+
+            kendo.bind($(".table-content"), hours);
+            console.log('bound totalHours with table-content');
+        </script>  
+</template>

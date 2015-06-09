@@ -1,0 +1,62 @@
+<!-- Assessment Methods Template -->
+
+<template name="assessment">
+	<legend>Assessment Methods and Types</legend>
+
+        <div class="form-group">
+          <table class="table table-bordered table-content-mark">
+            <thead>
+              <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-9">Type</th>
+                <th class="col-md-1">Mark</th>
+                <th class="col-md-1"></th>
+              </tr>
+            </thead>
+            <tbody class="table-body-mark">
+              <tr class="field" id="mark-field-1">
+                <td scope="row" class="num">
+                  <input name="markID" type="text" placeholder="ID" class="form-control" value="1">
+                </td>
+                <td><input id="type-1" name="type" type="text" placeholder="Final Examination, Lab Assignment 1" class="form-control"></td>
+                <td><input id="mark-1"  type="number" class="form-control hours" data-bind="value: mark[0]" placeholder="0"></td>
+                <td>
+                  <button id="" class="btn btn-success btn-add-mark" type="button">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <script>
+            var count_mark = 1;
+
+            $(document).on('click', '.btn-add-mark', function(e)
+            {
+                e.preventDefault();
+
+                var controlTable = $('.table-body-mark'),
+                    currentEntry = $(this).parents('.field:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlTable);
+
+                count_mark = count_mark + 1;
+
+                newEntry.find('input').val('');
+                newEntry.find("input:first").val(count_mark);
+                newEntry.attr("id", "mark-field-" + count_content);
+
+                controlTable.find('.field:not(:last) .btn-add-mark')
+                    .removeClass('btn-add-mark').addClass('btn-remove-mark')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('-');
+
+            }).on('click', '.btn-remove-mark', function(e)
+            {
+                $(this).parents('.field:first').remove();
+
+                e.preventDefault();
+                return false;
+            });
+        </script>  
+
+</template>
