@@ -141,3 +141,23 @@ table ol {
 form {
     margin-bottom: 180px;
 }
+
+#slo-field-0, #mark-field-0, #content-field-0 {
+  display: none;
+}
+
+.ui-widget {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btn-success, .btn-danger {
+  margin-bottom: 60px;
+}
+
+legend {
+}
+
+#contextMenu {
+  position: absolute;
+  display: none;
+}

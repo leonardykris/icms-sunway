@@ -1,0 +1,52 @@
+Algorithms and Complexity
+Architecture and Organization
+Computational Science
+Discrete Structures
+Graphics and Visualization
+Human-Computer Interaction
+Information Assurance and Security
+Information Management
+Intelligent Systems
+Networking and Communication
+Operating Systems
+Parallel and Distributed Computing
+Programming Languages
+Software Development Fundamentals
+Software Engineering Methods
+Systems Fundamentals
+Social Issues and Professional Practice
+
+
+http://localhost:3000/subject
+?bok=Algorithms+and+Complexity
+&id=
+&name=
+&rationale=
+&year=1
+&term=1
+credit=3
+&prerequisite=
+&transferable=
+&synopsis=
+&reference=
+&information=
+&slo-0=
+&po-0=
+&slo-1=
+&po-1=
+&type-0=
+&mark-0=
+&type-1=
+&mark-1=
+&title-0=
+&content-0=
+&lecture-0=
+&tutorial-0=
+&practical-0=
+&selfstudy-0=
+&title-1=
+&content-1=
+&lecture-1=
+&tutorial-1=
+&practical-1=
+&selfstudy-1=

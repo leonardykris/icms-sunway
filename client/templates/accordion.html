@@ -138,7 +138,7 @@
         });
 
         $(function() {
-          $("ol.simple_with_drop").sortable({
+          $("ol.simple_with_drop#1").sortable({
             group: 'no-drop',
             onDragStart: function (item, container, _super) {
               // Duplicate items of the no drop area
@@ -147,11 +147,14 @@
               _super(item)
             }
           });
+
           console.log('test1');
+
           $("ol.simple_with_no_drop").sortable({
             group: 'no-drop',
             drop: false
-          })
+          });
+          
         })
         console.log('hey');
   	</script>

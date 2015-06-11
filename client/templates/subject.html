@@ -34,7 +34,41 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="staff">Staff</label>  
           <div class="col-md-5">
-          <input id="staff" name="staff" type="text" placeholder="Name of Academic Staff" class="form-control input-md" required="" disabled="">
+          <input id="staff" name="staff" type="text" placeholder="Name of Academic Staff" class="form-control" required="" disabled="">
+          </div>
+        </div>
+
+        <!-- Course Input -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="staff">Course</label>  
+          <div class="col-md-5">
+          <input id="course" name="course" type="text" placeholder="B. Sc (Hons) in Computer Science" class="form-control" required="" disabled="">
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="bok">Body of Knowledge</label>
+          <div class="col-md-5">
+            <select id="bok" name="bok" class="form-control">
+              <option value="Algorithms and Complexity">Algorithms and Complexity</option>
+              <option value="Architecture and Organization">Architecture and Organization</option>
+              <option value="Computational Science">Computational Science</option>
+              <option value="Discrete Structures">Discrete Structures</option>
+              <option value="Graphics and Visualization">Graphics and Visualization</option>
+              <option value="Human-Computer Interaction">Human-Computer Interaction</option>
+              <option value="Information Assurance and Security">Information Assurance and Security</option>
+              <option value="Information Management">Information Management</option>
+              <option value="Intelligent Systems">Intelligent Systems</option>
+              <option value="Networking and Communication">Networking and Communication</option>
+              <option value="Operating Systems">Operating Systems</option>
+              <option value="Parallel and Distributed Computing">Parallel and Distributed Computing</option>
+              <option value="Programming Languages">Programming Languages</option>
+              <option value="Software Development Fundamentals">Software Development Fundamentals</option>
+              <option value="Software Engineering Methods">Software Engineering Methods</option>
+              <option value="Systems Fundamentals">Systems Fundamentals</option>
+              <option value="Social Issues and Professional Practice">Social Issues and Professional Practice</option>
+            </select>
           </div>
         </div>
 
@@ -42,7 +76,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="id">Subject ID</label>  
           <div class="col-md-5">
-          <input id="id" name="id" type="text" placeholder="Subject ID" class="form-control input-md" required="">
+          <input id="id" name="id" type="text" placeholder="Subject ID" class="form-control" required="">
           </div>
         </div>
 
@@ -50,7 +84,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="name">Subject Name</label>  
           <div class="col-md-5">
-          <input id="name" name="name" type="text" placeholder="Subject Name" class="form-control input-md" required="">
+          <input id="name" name="name" type="text" placeholder="Subject Name" class="form-control" required="">
           </div>
         </div>
 
@@ -101,24 +135,21 @@
         <!-- Select Multiple -->
         <div class="form-group">
           <label class="col-md-4 control-label" for="prerequisite">Prerequisite(s)</label>
-          <div class="col-md-8">
-            <select id="prerequisite" name="prerequisite" class="form-control" multiple="multiple" data-toggle="context" data-target="#context-menu">
-              <option value="none">(None)</option>
-              <option value="PRG1101">Problem Solving and Programming Fundamentals</option>
-              <option value="PRG1102">Programming Principles</option>
-              <option value="CSC1101">Computer Fundamentals</option>
-            </select>
-            <span class="help-block">Hold control (CTRL) to select multiple subjects/ cancel selection.<br/>Right click to view subject.</span> 
+          <div class="col-md-8" >
+            <input id="prerequisite" name="prerequisite" type="text" placeholder="Prerequisites/ Co-requisite" class="form-control" required="" >
           </div>
         </div>
 
+        <!-- data-toggle="context" data-target="#context-menu" -->
+
         <!-- Context Menu -->
-        <div id="context-menu">
-          <ul class="dropdown-menu" role="menu">
-            <li><a tabindex="-1" href="http://www.google.com/search?q=prg1101">View Subject</a></li>
-            <li><a tabindex="-1" href="#">Separated link</a></li>
-          </ul>
-        </div>
+        <div id="contextMenu" class="dropdown clearfix">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+              <li><a id="target-link" tabindex="-1" href="#">View</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Close</a></li>
+            </ul>
+          </div>
 
         <!-- Text input-->
         <div class="form-group">
@@ -179,15 +210,152 @@
           </div>
         </div>
 
-        {{ > subject_learning_outcome }} 
+        <legend>Subject Learning Outcomes</legend>
 
-        {{ > assessment }}  
+        <!-- Subject Learning Outcome -->
+        <div class="form-group">
+          <table class="table table-bordered col-sm-12">
+            <thead>
+              <tr>
+                <th class="col-sm-1">SLO</th>
+                <th class="col-sm-7">Content</th>
+                <th class="col-sm-3">POs<a href="" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body"> (Click for help)</a>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="slo-field" id="slo-field-0">
+                <th scope="row" class="num">
+                  <input id="slo-id-0" name="slo-id-0" type="text" placeholder="ID" class="form-control id" value="0" disabled="">
+                </th>
+                <td>
+                  <textarea id="slo-0" name="slo-0" type="text" placeholder="Content" class="form-control" required="" style="resize:none" rows="3"></textarea>
+                </td>
+                <td id="autofill">
+                  <input id="po-0" name="po-0" type="text" placeholder="POs" class="form-control">
+                </td>
+              </tr>
+              <tr class="slo-field" id="slo-field-1">
+                <th scope="row" class="num">
+                  <input id="slo-id-1" name="slo-id-1" type="text" placeholder="ID" class="form-control id" value="1" disabled="">
+                </th>
+                <td>
+                  <textarea id="slo-1" name="slo-1" type="text" placeholder="Content" class="form-control" required="" style="resize:none" rows="3"></textarea>
+                </td>
+                <td class="autofill">
+                  <input id="po-1" name="po-1" type="text" placeholder="POs" class="form-control">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="" class="btn btn-success btn-add" type="button">Add row</button>
+          <button id="" class="btn btn-danger btn-remove" type="button">Remove row</button>
+          
+        </div>
 
-        {{ > content_outline }}
+        <!-- Drag and drop attempt -->
 
+        <!-- 
+          <div class="list-group col-sm-2">
+            <ol class="simple_with_no_drop" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+              <li class="list-group-item">PO1</li>
+              <li class="list-group-item"><a href="#">PO2</a></li>
+              <li class="list-group-item"><a href="#">PO3</a></li>
+              <li class="list-group-item"><a href="#">PO4</a></li>
+            </ol>
+          </div> 
+        -->
+        <!-- 
+          <ol class="simple_with_drop" data-toggle="context" data-target="#context-menu"> -->
+                   <!-- <ol class="simple_with_drop" id="1" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+                  </ol> -->
+        <!-- <span name="toggle" type="btn btn-default" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" style="display: block;">Hey</span> -->
+
+        <legend>Assessment Methods and Types</legend>
+
+        <div class="form-group">
+          <table class="table table-bordered table-content-mark">
+            <thead>
+              <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-9">Type</th>
+                <th class="col-md-2">Mark</th>
+              </tr>
+            </thead>
+            <tbody class="table-body-mark">
+              <tr class="field" id="mark-field-0">
+                <th scope="row" class="num">
+                  <input id="mark-id-0" name="mark-id-0" type="text" placeholder="ID" class="form-control" value="0" disabled="">
+                </th>
+                <td><input id="type-0" name="type-0" type="text" placeholder="Final Examination, Lab Assignment 1" class="form-control"></td>
+                <td><input id="mark-0" name="mark-0" type="number" class="form-control hours" data-bind="value: mark[0]" placeholder="0"></td>
+              </tr>
+              <tr class="field" id="mark-field-1">
+                <th scope="row" class="num">
+                  <input id="mark-id-1" name="mark-id-1" type="text" placeholder="ID" class="form-control" value="1" disabled="">
+                </th>
+                <td><input id="type-1" name="type-1" type="text" placeholder="Final Examination, Lab Assignment 1" class="form-control"></td>
+                <td><input id="mark-1" name="mark-1" type="number" class="form-control hours" data-bind="value: mark[0]" placeholder="0"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="" class="btn btn-success btn-add-mark" type="button">Add row</button>
+          <button id="" class="btn btn-danger btn-remove-mark" type="button">Remove row</button>
+        </div>
+
+        <legend>Content Outline and Learning Time per Topic</legend>
+
+        <!-- Content Outline -->
+        <div class="form-group">
+          <table class="table table-bordered table-content">
+            <thead>
+              <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-4">Content</th>
+                <th class="col-md-1">Lecture</th>
+                <th class="col-md-1">Tutorial</th>
+                <th class="col-md-1">Practical</th>
+                <th class="col-md-2">Self Study</th>
+                <th class="col-md-2">Total</th>
+              </tr>
+            </thead>
+            <tbody class="table-body-content">
+              <tr class="field" id="content-field-0">
+                <th scope="row" class="num">
+                  <input name="content-id-0" type="text" placeholder="ID" class="form-control" value="0" disabled="">
+                </th>
+                <td>
+                  <input id="title-0" name="title-0" type="text" placeholder="Title" class="form-control">
+                  <textarea id="content-0" name="content-0" type="text" placeholder="Content" class="form-control content" required="" style="resize:none" rows="3"></textarea>
+                </td>
+                <td><input id="lecture-0"  name="lecture-0" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="tutorial-0"  name="tutorial-0" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="practical-0" name="practical-0" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="selfstudy-0" name="selfstudy-0" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="total-0" name="total-0" type="number" class="form-control hours" placeholder="0" disabled=""></td>
+              </tr>
+              <tr class="field" id="content-field-1">
+                <th scope="row" class="num">
+                  <input name="content-id-1" type="text" placeholder="ID" class="form-control" value="1" disabled="">
+                </th>
+                <td>
+                  <input id="title-1" name="title-1" type="text" placeholder="Title" class="form-control">
+                  <textarea id="content-1" name="content-1" type="text" placeholder="Content" class="form-control content" required="" style="resize:none" rows="3"></textarea>
+                </td>
+                <td><input id="lecture-1"  name="lecture-1" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="tutorial-1"  name="tutorial-1" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="practical-1" name="practical-1" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="selfstudy-1" name="selfstudy-1" type="number" class="form-control hours" placeholder="0"></td>
+                <td><input id="total-1" name="total-1" type="number" class="form-control hours" placeholder="0"  disabled=""></td>
+              </tr>
+            </tbody>
+          </table>
+          <span id="total-hours" class="help-block">Total hours: 0</span>
+          <button id="btn-add-content" class="btn btn-success btn-add-content" type="button">Add row</button>
+          <button id="btn-remove-content" class="btn btn-danger btn-remove-content" type="button">Remove row</button>
+        </div>
 
         <button type="submit" class="btn btn-success">Save</button>
-
 
         </fieldset>
     </form>
