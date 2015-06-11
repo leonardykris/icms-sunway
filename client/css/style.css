@@ -157,7 +157,7 @@ form {
 legend {
 }
 
-#contextMenu {
+#contextMenu, #contextMenuPLO {
   position: absolute;
   display: none;
 }

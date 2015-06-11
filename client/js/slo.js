@@ -1,4 +1,4 @@
-Template.subject.rendered = function() {
+Template.add_subject.rendered = function() {
 
 
     $('#prerequisite').tokenfield({
@@ -15,12 +15,12 @@ Template.subject.rendered = function() {
     */
     var $contextMenu = $("#contextMenu");
 
-    $(document).on('contextmenu', '.token-label', function(e) {
+    $(document).on('contextmenu', '#prerequisite-field .token-label', function(e) {
       e.preventDefault();
       /* Act on the event */
       // alert('gotcha!');
-      console.log($(this).html());
-      $("#target-link").attr("href", "/" + $(this).html()).attr("target", "_blank");
+      console.log($(this));
+      $("#target-link").attr("href", "/subject/view/" + $(this).html()).attr("target", "_blank");
 
       $contextMenu.css({
             display: "block",
@@ -32,6 +32,28 @@ Template.subject.rendered = function() {
     });
 
     $contextMenu.on("click", "a", function() {
+       $contextMenu.hide();
+    });
+
+    var $contextMenuPLO = $("#contextMenuPLO");
+
+    $(document).on('contextmenu', '.slo-field .token-label', function(e) {
+      e.preventDefault();
+      /* Act on the event */
+      // alert('gotcha!');
+      console.log($(this));
+      $("#target-link-plo").attr("href", "/plo/" + $(this).html()).attr("target", "_blank");
+
+      $contextMenuPLO.css({
+            display: "block",
+            left: e.pageX-93,
+            top: e.pageY-75,
+            zIndex: 100
+      });
+      return false;
+    });
+
+    $contextMenuPLO.on("click", "a", function() {
        $contextMenu.hide();
     });
 
@@ -282,7 +304,7 @@ Template.subject.rendered = function() {
           document.getElementById("btn-add-content").disabled = false;
           total_hours_text.style.color = 'black';
           total_hours_text.innerHTML = 'Total hours: ' + total_hours;
-          alert('all safe!');
+          // alert('all safe!');
         } 
         else if (total_hours >= 160){
           total_hours_text.style.color = 'red';

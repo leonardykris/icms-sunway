@@ -1,5 +1,5 @@
 <!-- Subject Template -->
-<template name="subject">
+<template name="add_subject">
   	{{ > navbar }}
   	<div class="container">
       {{ > accordion }}      
@@ -34,7 +34,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="staff">Staff</label>  
           <div class="col-md-5">
-          <input id="staff" name="staff" type="text" placeholder="Name of Academic Staff" class="form-control" required="" disabled="">
+          <input id="staff" name="staff" type="text" placeholder="Name of Academic Staff" class="form-control" required="" disabled="" value="Administrator">
           </div>
         </div>
 
@@ -42,7 +42,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="staff">Course</label>  
           <div class="col-md-5">
-          <input id="course" name="course" type="text" placeholder="B. Sc (Hons) in Computer Science" class="form-control" required="" disabled="">
+          <input id="course" name="course" type="text" placeholder="B. Sc (Hons) in Computer Science" class="form-control" required="" disabled="" value="B. Sc (Hons) in Computer Science">
           </div>
         </div>
 
@@ -76,7 +76,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="id">Subject ID</label>  
           <div class="col-md-5">
-          <input id="id" name="id" type="text" placeholder="Subject ID" class="form-control" required="">
+          <input id="id" name="id" type="text" placeholder="Subject ID" class="form-control" required="" value="WEB1101">
           </div>
         </div>
 
@@ -84,7 +84,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="name">Subject Name</label>  
           <div class="col-md-5">
-          <input id="name" name="name" type="text" placeholder="Subject Name" class="form-control" required="">
+          <input id="name" name="name" type="text" placeholder="Subject Name" class="form-control" required="" value="Web Fundamentals">
           </div>
         </div>
 
@@ -92,7 +92,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="rationale">Rationale</label>  
           <div class="col-md-8">
-          <textarea id="rationale" name="rationale" type="text-area" placeholder="Rationale for the inclusion of the subject in the programme" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          <textarea id="rationale" name="rationale" type="text-area" placeholder="Rationale for the inclusion of the subject in the programme" class="form-control input-md" required="" style="resize:none" rows="3" value="This is an important subject"></textarea>
           </div>
         </div>
 
@@ -133,7 +133,7 @@
         </div>
 
         <!-- Select Multiple -->
-        <div class="form-group">
+        <div id="prerequisite-field" class="form-group">
           <label class="col-md-4 control-label" for="prerequisite">Prerequisite(s)</label>
           <div class="col-md-8" >
             <input id="prerequisite" name="prerequisite" type="text" placeholder="Prerequisites/ Co-requisite" class="form-control" required="" >
@@ -145,17 +145,27 @@
         <!-- Context Menu -->
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
-              <li><a id="target-link" tabindex="-1" href="#">View</a></li>
+              <li><a id="target-link" tabindex="-1" href="#">View Subject</a></li>
               <li class="divider"></li>
               <li><a tabindex="-1" href="#">Close</a></li>
             </ul>
           </div>
 
+                  <!-- Context Menu -->
+        <div id="contextMenuPLO" class="dropdown clearfix">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+              <li><a id="target-link-plo" tabindex="-1" href="#">View PLO</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Close</a></li>
+            </ul>
+          </div>
+
+
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="transferable">Transferable Skills</label>  
           <div class="col-md-8">
-          <textarea id="transferable" name="transferable" type="text" placeholder="Transferable Skills" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          <textarea id="transferable" name="transferable" type="text" placeholder="Transferable Skills" class="form-control input-md" required="" style="resize:none" rows="3" value="you can work!"></textarea>
             
           </div>
         </div>
@@ -164,7 +174,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="synopsis">Synopsis</label>  
           <div class="col-md-8">
-          <textarea id="synopsis" name="synopsis" type="text" placeholder="Synopsis" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          <textarea id="synopsis" name="synopsis" type="text" placeholder="Synopsis" class="form-control input-md" required="" style="resize:none" rows="3" value="good stuff"></textarea>
             
           </div>
         </div>
@@ -175,7 +185,7 @@
           <div class="col-md-4">
           <div class="checkbox">
             <label for="modes-0">
-              <input type="checkbox" name="modes" id="modes-0" value="L">
+              <input type="checkbox" name="modes" id="modes-0" value="L" checked="">
               Lecture
             </label>
             </div>
@@ -198,7 +208,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="reference">References</label>  
           <div class="col-md-8">
-          <textarea id="reference" name="reference" type="text" placeholder="References" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          <textarea id="reference" name="reference" type="text" placeholder="References" class="form-control input-md" required="" style="resize:none" rows="3" value="Wiley"></textarea>
           </div>
         </div>
 
@@ -206,7 +216,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="information">Additional Information</label>  
           <div class="col-md-8">
-          <textarea id="information" name="information" type="text" placeholder="Additional Information" class="form-control input-md" required="" style="resize:none" rows="3"></textarea>
+          <textarea id="information" name="information" type="text" placeholder="Additional Information" class="form-control input-md" required="" style="resize:none" rows="3" value="additional info"></textarea>
           </div>
         </div>
 
@@ -226,7 +236,7 @@
             <tbody class="table-body">
               <tr class="slo-field" id="slo-field-0">
                 <th scope="row" class="num">
-                  <input id="slo-id-0" name="slo-id-0" type="text" placeholder="ID" class="form-control id" value="0" disabled="">
+                  <input id="slo-id-0" name="slo-id-0" type="text" placeholder="ID" class="form-control id" value="0">
                 </th>
                 <td>
                   <textarea id="slo-0" name="slo-0" type="text" placeholder="Content" class="form-control" required="" style="resize:none" rows="3"></textarea>
@@ -237,7 +247,7 @@
               </tr>
               <tr class="slo-field" id="slo-field-1">
                 <th scope="row" class="num">
-                  <input id="slo-id-1" name="slo-id-1" type="text" placeholder="ID" class="form-control id" value="1" disabled="">
+                  <input id="slo-id-1" name="slo-id-1" type="text" placeholder="ID" class="form-control id" value="1">
                 </th>
                 <td>
                   <textarea id="slo-1" name="slo-1" type="text" placeholder="Content" class="form-control" required="" style="resize:none" rows="3"></textarea>
@@ -285,14 +295,14 @@
             <tbody class="table-body-mark">
               <tr class="field" id="mark-field-0">
                 <th scope="row" class="num">
-                  <input id="mark-id-0" name="mark-id-0" type="text" placeholder="ID" class="form-control" value="0" disabled="">
+                  <input id="mark-id-0" name="mark-id-0" type="text" placeholder="ID" class="form-control" value="0">
                 </th>
                 <td><input id="type-0" name="type-0" type="text" placeholder="Final Examination, Lab Assignment 1" class="form-control"></td>
                 <td><input id="mark-0" name="mark-0" type="number" class="form-control hours" data-bind="value: mark[0]" placeholder="0"></td>
               </tr>
               <tr class="field" id="mark-field-1">
                 <th scope="row" class="num">
-                  <input id="mark-id-1" name="mark-id-1" type="text" placeholder="ID" class="form-control" value="1" disabled="">
+                  <input id="mark-id-1" name="mark-id-1" type="text" placeholder="ID" class="form-control" value="1">
                 </th>
                 <td><input id="type-1" name="type-1" type="text" placeholder="Final Examination, Lab Assignment 1" class="form-control"></td>
                 <td><input id="mark-1" name="mark-1" type="number" class="form-control hours" data-bind="value: mark[0]" placeholder="0"></td>
@@ -322,7 +332,7 @@
             <tbody class="table-body-content">
               <tr class="field" id="content-field-0">
                 <th scope="row" class="num">
-                  <input name="content-id-0" type="text" placeholder="ID" class="form-control" value="0" disabled="">
+                  <input name="content-id-0" type="text" placeholder="ID" class="form-control" value="0">
                 </th>
                 <td>
                   <input id="title-0" name="title-0" type="text" placeholder="Title" class="form-control">
@@ -332,11 +342,11 @@
                 <td><input id="tutorial-0"  name="tutorial-0" type="number" class="form-control hours" placeholder="0"></td>
                 <td><input id="practical-0" name="practical-0" type="number" class="form-control hours" placeholder="0"></td>
                 <td><input id="selfstudy-0" name="selfstudy-0" type="number" class="form-control hours" placeholder="0"></td>
-                <td><input id="total-0" name="total-0" type="number" class="form-control hours" placeholder="0" disabled=""></td>
+                <td><input id="total-0" name="total-0" type="number" class="form-control hours" placeholder="0"></td>
               </tr>
               <tr class="field" id="content-field-1">
                 <th scope="row" class="num">
-                  <input name="content-id-1" type="text" placeholder="ID" class="form-control" value="1" disabled="">
+                  <input name="content-id-1" type="text" placeholder="ID" class="form-control" value="1" >
                 </th>
                 <td>
                   <input id="title-1" name="title-1" type="text" placeholder="Title" class="form-control">
@@ -346,7 +356,7 @@
                 <td><input id="tutorial-1"  name="tutorial-1" type="number" class="form-control hours" placeholder="0"></td>
                 <td><input id="practical-1" name="practical-1" type="number" class="form-control hours" placeholder="0"></td>
                 <td><input id="selfstudy-1" name="selfstudy-1" type="number" class="form-control hours" placeholder="0"></td>
-                <td><input id="total-1" name="total-1" type="number" class="form-control hours" placeholder="0"  disabled=""></td>
+                <td><input id="total-1" name="total-1" type="number" class="form-control hours" placeholder="0"  ></td>
               </tr>
             </tbody>
           </table>
