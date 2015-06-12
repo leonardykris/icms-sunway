@@ -24,18 +24,26 @@
 <template name = 'articles'>
   <h2>Articles</h2>
     <ul class="list-group">
-       {{#each this}} 
+       {{#each dataset}} 
         <li class="list-group-item">
-          <a href="/plo/{{ id }}"> {{title}} </a>
+          <a href="/plo/481BCS/{{ id }}"> {{ name }} </a>
         </li>
       {{/each}}
     </ul>
 </template>
 
 <template name = 'articleDetail'>
-  <h1> {{ title }} </h1>
-  <h2><a href="{{ pathFor 'plo' }}">Article {{ id }} </a></h2>
-  <p>{{ body }}</p>
+  <h1> {{ dataset.name }} </h1>
+  <h2><a href="{{ pathFor 'plo' }}">Programme Learning Outcome {{ dataset.id }} </a></h2>
+  <p>{{ dataset.content }}</p>
+  <h3>Related: </h3>
+  <ul class="list-group">
+     {{#each dataset.learning_domains}} 
+      <li class="list-group-item">
+        <a href="/plo/481BCS/{{ id }}"> {{ this }} </a>
+      </li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="plo_single" >
@@ -98,5 +106,13 @@
     </div>
 </template>
 
-
-
+<template name="loading">
+    {{ > navbar }}
+    <div class="container">  
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            Loading publication....
+        </div>
+      </div>
+    </div>
+</template>

@@ -58,7 +58,7 @@ Meteor.startup(function() {
     console.log('Programmes emptied');
 
     if (Programmes.find().count() === 0) {
-        MQA.insert({
+        Programmes.insert({
             id: '481BCS',
             name: 'B. Sc (Hons) in Computer Science',
             aims: 'To provide students with a thorough grounding in the theoretical and practical aspects of the Computer Science discipline necessary for successful careers as system designers and builders in the continually developing information technology environment',
@@ -78,7 +78,7 @@ Meteor.startup(function() {
                 {
                     id: '3',
                     name: 'PO3',
-                    content: 'Demonstrate theoretical computing knowledge in analysing, modeling, designing, developing, and evaluating computing solutions; and integrate various technology/ solutions',
+                    content: 'Demonstrate theoretical computing knowledge in analyzing, modeling, designing, developing, and evaluating computing solutions; and integrate various technology/ solutions',
                     learning_domains: ['Practical Skills']
                 },
                 {
@@ -249,6 +249,17 @@ Meteor.startup(function() {
             ]
         });
     }
+
+    // console.log(Programmes.find({ id: '481BCS' }).fetch());
+
+    var p = Programmes.find({ id: '481BCS' }).fetch();
+
+    /*Meteor.publish("programmes", function () {
+        console.log('published');
+        return Programmes.find({});
+      });*/
+
+    console.log(p[0].aims);
 
     /*if (MQA.find().count() === 0) {
         var domain = [
